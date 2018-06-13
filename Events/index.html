@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+  </head>
+  <body>
+    <div id="exercise">
+      <!--SHOW AN ALERT WHEN THE BUTTON IS CLICKED-->
+      <div>
+        <button v-on:click="clicked">Show Alert</button>
+      </div>
+    
+      <!--LISTEN TO KEYUP EVENT AND STORE THE VALUE IN A DATA PROPERTY-->
+      <div>
+        <input type="text" v-on:keyup="getValue">
+        <p>{{ value }}</p>
+      </div>
+
+      <!--ADJUST EXAMPLE 2 TO ONLY FIRE IF THE ENTER KEY IS PRESSED-->
+      <div>
+          <input type="text" v-on:keyup.enter="getValue">
+          <p>{{ value }}</p>
+        </div>
+    </div>
+    
+    <script src="events.js"></script>
+  </body>
+</html>

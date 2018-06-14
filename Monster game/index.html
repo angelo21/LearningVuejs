@@ -17,7 +17,7 @@
             <h1 class="text-center">YOU</h1>
             <div class="healthbar">
                 <div class="healthbar text-center" :style="playerProgressBar">
-                  <span>{{ playerHealth }}</span>
+                  {{ playerHealth }}
                 </div>
             </div>
         </div>
@@ -25,14 +25,14 @@
             <h1 class="text-center">MONSTER</h1>
             <div class="healthbar">
                 <div class="healthbar text-center" :style="monsterProgressBar">
-                  <span>{{ monsterHealth }}</span>
+                  {{ monsterHealth }}
                 </div>
             </div>
         </div>
     </section>
     <section class="row controls">
         <div class="small-12 columns">
-            <button id="start-game" @click="startNewGame">START NEW GAME</button>
+            <button id="start-game" v-if="!newGame" @click="startNewGame">START NEW GAME</button>
         </div>
     </section>
     <template v-if="newGame">

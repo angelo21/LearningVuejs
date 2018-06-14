@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conditionals and Lists</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="exercises">
+      <!--HOOK UP BUTTON TO TOGGLE THE DISPLAY OF THE PARAGRAPHS-->
+      <button @click="show = !show">Toggle</button>
+      <p v-if="show">You either see me...</p>
+      <p v-else>... or me</p>
+
+      <!--OUTPUT UNORDERED LIST OF ARRAY ELEMENTS AND PRINT THE INDEX-->
+      <ul>
+        <li v-for="(person, index) of people">{{ index }}: {{ person }}</li>
+      </ul>
+
+      <!--PRINT ALL KEY-VALUE PAIRS OF BOOKS OBJECT-->
+      <ul>
+        <li v-for="(value, key, index) in books">{{ key }}: {{ value }}: {{ index }}</li>
+      </ul>
+
+      <!--PRINT VALUES IN OBJECT AND CREATE A NESTED LOOP FOR THE ARRAY-->
+      <template v-for="obj in test">
+        <span>{{ obj }}</span>
+        <p v-for="item in test.data">{{ item }}</p>
+      </template>
+    </div>
+    
+    <script src="conditionalsAndLists.js"></script>
+  </body>
+</html>

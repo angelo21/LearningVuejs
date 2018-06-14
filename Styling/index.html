@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Styling</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="exercise">
+      <!--ALTERNATE BETWEEN TWO CLASSES-->
+      <button @click="startEffect">Start Effect</button>
+      <div id="effect" :class="bigOrSmall"></div>
+
+      <!--USING AN ARRAY TO SET CLASSES-->
+      <div :class="[green, orangeRed]">Class in Array</div>
+
+      <!--USER ENTERS A COLOR TO UPDATE-->
+      <div>
+        <input type="text" v-model="color">
+        <div class="original" :style="changeColor"></div>
+      </div>
+
+      <!--CREATE A PROGRESS BAR-->
+     <div class="progress">
+       <div :style="bar"></div>
+       <button @click="load">Start Progress</button>
+     </div>
+    </div>
+
+    <script src="styling.js"></script>
+  </body>
+</html>

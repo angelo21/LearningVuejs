@@ -3,7 +3,7 @@ new Vue({
   el: "#app",
   data: {
     //SETS INITIAL STATE
-    newGame: true,
+    newGame: false,
     scoreboard: false,
     playerHealth: 100,
     monsterHealth: 100,
@@ -26,7 +26,7 @@ new Vue({
 
   methods: {
     startNewGame() {
-      this.newGame = false;
+      this.newGame = true;
       this.scoreboard = true;
       this.actionArr = [];
     },
@@ -62,7 +62,7 @@ new Vue({
     },
 
     reset() {
-      this.newGame = true;
+      this.newGame = false;
       this.playerProgressBar.width = "100%";
       this.monsterProgressBar.width = "100%";
       this.playerHealth = 100;

@@ -8,46 +8,53 @@
 </head>
 <body>
 <div id="app">
+  <template v-if="monsterHealth <= 0">{{ playerWins() }}</template>
+  <template v-else-if="playerHealth <= 0"> {{ monsterWins() }}</template>
+    
+  </template>
     <section class="row">
         <div class="small-6 columns">
             <h1 class="text-center">YOU</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+                <div class="healthbar text-center" :style="playerProgressBar">
+                  <span>{{ playerHealth }}</span>
                 </div>
             </div>
         </div>
         <div class="small-6 columns">
             <h1 class="text-center">MONSTER</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+                <div class="healthbar text-center" :style="monsterProgressBar">
+                  <span>{{ monsterHealth }}</span>
                 </div>
             </div>
         </div>
     </section>
     <section class="row controls">
         <div class="small-12 columns">
-            <button id="start-game">START NEW GAME</button>
+            <button id="start-game" @click="startNewGame">START NEW GAME</button>
         </div>
     </section>
-    <section class="row controls">
-        <div class="small-12 columns">
-            <button id="attack">ATTACK</button>
-            <button id="special-attack">SPECIAL ATTACK</button>
-            <button id="heal">HEAL</button>
-            <button id="give-up">GIVE UP</button>
-        </div>
-    </section>
-    <section class="row log">
-        <div class="small-12 columns">
-            <ul>
-                <li>
+    <template v-if="!newGame">
+      <section class="row controls">
+          <div class="small-12 columns">
+              <button id="attack" @click="attack">ATTACK</button>
+              <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
+              <button id="heal" @click="heal">HEAL</button>
+              <button id="give-up" @click="reset">GIVE UP</button>
+          </div>
+      </section>
+    </template>
 
-                </li>
-            </ul>
-        </div>
-    </section>
+      <section class="row log" v-if="scoreboard">
+          <div class="small-12 columns">
+              <ul>
+                  <li v-for="item of actionArr">{{ item }}</li>
+              </ul>
+          </div>
+      </section>
+    
 </div>
+  <script src="monster.js"></script>
 </body>
 </html>

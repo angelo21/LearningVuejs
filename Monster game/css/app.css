@@ -92,3 +92,13 @@ button {
 #give-up:hover {
     background-color: #c7c7c7;
 }
+
+li:nth-of-type(odd) {
+    background-color: pink;
+    color: blue;
+}
+
+li:nth-of-type(even) {
+    background-color: lightblue;
+    color: red;
+}

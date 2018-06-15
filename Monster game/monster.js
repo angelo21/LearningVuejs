@@ -4,7 +4,6 @@ new Vue({
   data: {
     //SETS INITIAL STATE
     newGame: false,
-    scoreboard: false,
     playerHealth: 100,
     monsterHealth: 100,
     actionArr: [],
@@ -31,7 +30,6 @@ new Vue({
   methods: {
     startNewGame() {
       this.newGame = true;
-      this.scoreboard = true;
       this.actionArr = [];
     },
 
@@ -45,8 +43,8 @@ new Vue({
       this.playerHealth -= ranNumPlayer;
       this.monsterHealth -= ranNumMonster;
       this.updateProgressBar();
-      this.actionArr.push(`Monster hits player for ${ranNumPlayer}`);
-      this.actionArr.push(`Player hits monster for ${ranNumMonster}`); 
+      this.actionArr.unshift(`Monster hits player for ${ranNumPlayer}`);
+      this.actionArr.unshift(`Player hits monster for ${ranNumMonster}`); 
       this.regularAttack++;
       this.healed++;
       //DISABLES SPECIAL ATTACK FOR 5 MOVES
@@ -67,8 +65,8 @@ new Vue({
       this.monsterHealth -= ranNumSpecial;
       this.playerHealth -= ranNumPlayer;
       this.updateProgressBar()
-      this.actionArr.push(`Monster hits player for ${ranNumPlayer}`)
-      this.actionArr.push(`Player hits monster for ${ranNumSpecial}`)
+      this.actionArr.unshift(`Monster hits player for ${ranNumPlayer}`)
+      this.actionArr.unshift(`Player hits monster hard for ${ranNumSpecial}`)
       this.timer = true;
     },
 
@@ -79,6 +77,7 @@ new Vue({
         this.playerHealth += heal;
         this.playerHealth -= monsterAttack;
       }
+      this.actionArr.unshift(`Player heals ${heal} points`)
       this.updateProgressBar();
       this.healTimer = true;
     },

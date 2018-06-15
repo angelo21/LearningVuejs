@@ -8,6 +8,10 @@ new Vue({
     playerHealth: 100,
     monsterHealth: 100,
     actionArr: [],
+    timer: false,
+    regularAttack: 0,
+    healTimer: false,
+    healed: 0,
 
     playerProgressBar: {
       width: "100%",
@@ -31,34 +35,52 @@ new Vue({
       this.actionArr = [];
     },
 
+    randomAttackNumber(num) {
+      return Math.floor(Math.random() * num);
+    },
+
     attack() {
-      let ranNumPlayer = Math.floor(Math.random() * 10)
-      let ranNumMonster = Math.floor(Math.random() * 10)
+      let ranNumPlayer = this.randomAttackNumber(15);
+      let ranNumMonster = this.randomAttackNumber(10)
       this.playerHealth -= ranNumPlayer;
       this.monsterHealth -= ranNumMonster;
       this.updateProgressBar();
       this.actionArr.push(`Monster hits player for ${ranNumPlayer}`);
       this.actionArr.push(`Player hits monster for ${ranNumMonster}`); 
+      this.regularAttack++;
+      this.healed++;
+      //DISABLES SPECIAL ATTACK FOR 5 MOVES
+      if (this.regularAttack >= 5) {
+        this.timer = false;
+        this.regularAttack = 0;
+      }
+      //DISABLES HEAL FOR 5 MOVES
+      if (this.healed >= 5) {
+        this.healTimer = false;
+        this.healed = 0;
+      }
     },
 
     specialAttack() {
-      let ranNumSpecial = Math.floor(Math.random() * 20);
-      let ranNumPlayer = Math.floor(Math.random() * 10);
+      let ranNumSpecial = this.randomAttackNumber(20);
+      let ranNumPlayer = this.randomAttackNumber(10);
       this.monsterHealth -= ranNumSpecial;
       this.playerHealth -= ranNumPlayer;
       this.updateProgressBar()
       this.actionArr.push(`Monster hits player for ${ranNumPlayer}`)
       this.actionArr.push(`Player hits monster for ${ranNumSpecial}`)
+      this.timer = true;
     },
 
     heal() {
-      let heal = Math.floor(Math.random() * 15);
-      let monsterAttack = Math.floor(Math.random() * 10)
+      let heal = this.randomAttackNumber(15);
+      let monsterAttack = this.randomAttackNumber(10)
       if (this.playerHealth + heal <= 100) {
         this.playerHealth += heal;
         this.playerHealth -= monsterAttack;
       }
       this.updateProgressBar();
+      this.healTimer = true;
     },
 
     reset() {

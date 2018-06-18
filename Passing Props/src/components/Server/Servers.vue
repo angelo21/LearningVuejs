@@ -1,16 +1,17 @@
 <template>
     <div class="col-xs-12 col-sm-6">
         <ul class="list-group">
-            <li
-                    class="list-group-item"
-                    :key="index" v-for="index in 5">
-                Server #{{ index }}
-            </li>
+            <server-status 
+                :key="index" 
+                v-for="(server, index) in servers" :server="server">
+            </server-status>
         </ul>
     </div>
 </template>
 
 <script>
+    import ServerStatus from "./Server-Status.vue"; 
+
     export default {
         data() {
             return {
@@ -21,6 +22,9 @@
                     { id: 4, status: "Normal"},
                 ]
             }
+        },
+        components: {
+            "server-status": ServerStatus
         }
     }
 </script>

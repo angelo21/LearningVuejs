@@ -1,20 +1,31 @@
 <template>
-  <div id="app">
-
-  </div>
+    <div class="container">
+      <app-header></app-header>
+      <hr>
+      <app-body></app-body>
+      <hr>
+      <app-footer></app-footer>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  import Header from "./components/Header.vue"
+  import Body from "./components/Body.vue"
+  import Footer from "./components/Footer.vue"
+
+  export default {
+  components: {
+    "app-header": Header,
+    "app-body": Body,
+    "app-footer": Footer
   }
 }
 </script>
 
 <style lang="scss">
-
+  .container {
+    padding: 3rem;
+  }
 </style>
+
+

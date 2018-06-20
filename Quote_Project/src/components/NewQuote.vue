@@ -24,10 +24,10 @@
     },
     methods: {
       createNew() {
-        if (this.quote !== "") {
+        //if (this.quote !== "") {
           this.$emit("quoteAdded", this.quote);
           this.quote = "";
-        }
+        //}
       }
     }
   }

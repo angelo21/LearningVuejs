@@ -25,6 +25,9 @@
     },
     methods: {
       newQuote(event) {
+        if (this.quotes.length >= this.maxQuotes) {
+          return alert("Please delete Quotes first!");
+        }
         this.quotes.push(event)
       },
       deleteQuote(index) {

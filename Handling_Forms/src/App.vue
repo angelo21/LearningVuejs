@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <form>
+        <form v-if="!form.submitted">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <!-- Exercise 1 -->
@@ -56,19 +56,16 @@
                         value="No"
                         v-model="form.data"> No 
                     </label>
-        
-                    <!-- Exercise 2 -->
-                    <!-- Only display the Form if it has NOT been submitted -->
-                    <!-- Display the Data Summary ONCE the Form HAS been submitted -->
-
-                    <!-- Exercise 3 -->
-                    <!-- Edit the Example from above and create a custom "Full Name" Control -->
-                    <!-- which still holds the First Name and Last Name Input Field -->
                 </div>
             </div>
+            <button 
+                type="button" 
+                class="btn btn-primary"
+                @click.prevent="form.submitted = true">Submit
+            </button>
         </form>
         <hr>
-        <div class="row">
+        <div class="row" v-if="form.submitted">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -95,6 +92,7 @@
                     email: "",
                     password: "",
                     data: "Yes",
+                    submitted: false,
                 }
             }
         }

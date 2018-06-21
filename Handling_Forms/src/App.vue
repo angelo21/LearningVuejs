@@ -19,6 +19,7 @@
                         class="form-control"
                         v-model="form.name">
                     </div>
+                   
 
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -96,7 +97,7 @@
                     submitted: false,
                 }
             }
-        }
+        },
     }
 </script>
 

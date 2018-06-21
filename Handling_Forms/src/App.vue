@@ -56,13 +56,14 @@
                         value="No"
                         v-model="form.data"> No 
                     </label>
+                    <button 
+                        type="button" 
+                        class="btn btn-primary"
+                        style="display: block"
+                        @click.prevent="form.submitted = true">Submit
+                    </button>
                 </div>
             </div>
-            <button 
-                type="button" 
-                class="btn btn-primary"
-                @click.prevent="form.submitted = true">Submit
-            </button>
         </form>
         <hr>
         <div class="row" v-if="form.submitted">

@@ -9,7 +9,54 @@
                     <!-- Mail -->
                     <!-- Password -->
                     <!-- Store Data? Yes/No -->
+                    <h1>Sign Up</h1>
+                    <hr>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input 
+                        type="text" 
+                        id="name" 
+                        class="form-control"
+                        v-model="form.name">
+                    </div>
 
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                        type="email" 
+                        id="email" 
+                        class="form-control"
+                        v-model="form.email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input 
+                        type="password" 
+                        id="password" 
+                        class="form-control"
+                        v-model="form.password">
+                    </div>
+
+                    <p>Store Data?</p>
+                    <label for="yes">
+                        <input 
+                        name="data"
+                        type="radio" 
+                        id="yes" 
+                        value="Yes"
+                        v-model="form.data"> Yes 
+                    </label>
+
+                    <label for="no">
+                        <input 
+                        name="data"
+                        type="radio" 
+                        id="no" 
+                        value="No"
+                        v-model="form.data"> No 
+                    </label>
+        
                     <!-- Exercise 2 -->
                     <!-- Only display the Form if it has NOT been submitted -->
                     <!-- Display the Data Summary ONCE the Form HAS been submitted -->
@@ -28,10 +75,10 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Full Name: </p>
-                        <p>Mail: </p>
-                        <p>Password: </p>
-                        <p>Store in Database?: </p>
+                        <p>Full Name: {{ form.name }}</p>
+                        <p>Mail: {{ form.email }}</p>
+                        <p>Password: {{ form.password }}</p>
+                        <p>Store in Database?: {{ form.data }}</p>
                     </div>
                 </div>
             </div>
@@ -41,8 +88,20 @@
 
 <script>
     export default {
+        data() {
+            return  {
+                form: {
+                    name: "",
+                    email: "",
+                    password: "",
+                    data: "Yes",
+                }
+            }
+        }
     }
 </script>
 
 <style>
 </style>
+
+

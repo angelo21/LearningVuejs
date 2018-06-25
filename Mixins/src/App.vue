@@ -13,7 +13,8 @@
                 <p>{{ name | countChars}}</p>
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
-
+                <p>{{ reverse }}</p>
+                <p>{{ countChars }}</p>
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
             </div>
@@ -23,14 +24,22 @@
 
 <script>
 export default {
-  data() {
-    return {
-    name: "Tom",
-    }
-  },
-  filters: {
-    reverse(value) {
-        return value.split("").reverse().join("");
+    data() {
+        return {
+        name: "Tom",
+        }
+    },
+    filters: {
+        reverse(value) {
+            return value.split("").reverse().join("");
+        }
+    },
+    computed: {
+        reverse() {
+            return this.name.split("").reverse().join("");
+        },
+        countChars() {
+            return `${this.name} (${this.name.length})`
         }
     }
 };

@@ -5,12 +5,6 @@ Vue.filter("countChars", (value) => {
     return `${value} (${value.length})`
 })
 
-Vue.mixin({
-    created() {
-        console.log('Global Mixin - Created Hook');
-    }
-});
-
 new Vue({
   el: '#app',
   render: h => h(App)

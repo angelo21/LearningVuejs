@@ -10,7 +10,7 @@
                 <!-- Exercise 2 -->
                 <!-- Build a global Filter which counts the length of a word and it appends it -->
                 <!-- Like this: "Test" => Gets Filtered to => "Test (4)" -->
-
+                <p>{{ name | countChars}}</p>
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
 

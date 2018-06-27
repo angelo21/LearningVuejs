@@ -74,7 +74,6 @@
             },
             generateRandomNumber(min, max, except) {
                 const rndNumber = Math.round(Math.random() * (max - min)) + min;
-                console.log(min, max, rndNumber);
                 if (rndNumber == except) {
                     return this.generateRandomNumber(min, max, except);
                 }

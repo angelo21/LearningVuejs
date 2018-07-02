@@ -1,17 +1,27 @@
 
 <template>
   <div id="translate-form">
-    <form @submit.prevent="formSubmit">
+    <form 
+      @submit.prevent="formSubmit"
+      class="well">
       <input 
+        class="form-control"
         type="text" 
         v-model="textToTranslate" 
         placeholder="Enter a Word">
-        <select v-model="language">
+        <br>
+        <select 
+          v-model="language"
+          class="form-control">
           <option value="es">Spanish</option>
           <option value="ru">Russian</option>
           <option value="fr">French</option>
         </select>
-        <input type="submit" value="Translate">
+        <br><br>
+        <input 
+          type="submit" 
+          value="Translate"
+          class="btn btn-primary">
     </form>
   </div>
 </template>
@@ -35,4 +45,8 @@ export default {
 </script>
 
 <style>
+  #translate-form {
+    max-width: 500px;
+    margin: auto;
+  }
 </style>

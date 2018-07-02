@@ -1,10 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="text-center">
     <h1>Word Translator</h1>
     <h5>Powered by Vue.js</h5>
+    <br>
     <app-translate-form   
       v-on:formSubmit="translateText">
     </app-translate-form>
+    <br>
     <app-translate-output   
       :translatedText="translatedText">
     </app-translate-output>
@@ -36,4 +38,7 @@ export default {
 </script>
 
 <style>
+  #app {
+    margin-top: 30px;
+  }
 </style>

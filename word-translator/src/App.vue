@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <h1>Word Translator</h1>
+    <h5>Powered by Vue.js</h5>
+    <app-translate-form   
+      v-on:formSubmit="translateText">
+    </app-translate-form>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import AppTranslateForm from "./components/TranslateForm";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    AppTranslateForm,
+  },
+  methods: {
+    translateText(value) {
+      console.log(value)
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

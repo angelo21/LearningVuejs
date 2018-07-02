@@ -1,13 +1,14 @@
 <template>
-  <div id="app" class="main" @click="popup">
-    <app-popup 
-      v-if="show" 
-      :text.sync="textContent">
-    </app-popup>
-    
+  <div id="app" class="main">
     <div class="main__contain">
-      <p class="main__heading">Hello World</p>
-      <p class="main__subheading">Click Anywhere</p>
+      <app-popup 
+        v-if="show"
+        :text.sync="textContent">
+      </app-popup>
+      <p class="main__heading">{{ textContent }}</p>
+      <p 
+        class="main__subheading" 
+        @click="popup">Click me to begin</p>
     </div>
   </div>
 </template>
@@ -16,12 +17,12 @@
 import AppPopup from "./components/Popup";
 
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  data() {
     return {
       show: false,
-      textContent: "",
-    }
+      textContent: "Hello World"
+    };
   },
   methods: {
     popup() {
@@ -29,30 +30,29 @@ export default {
     }
   },
   components: {
-    AppPopup,
+    AppPopup
   }
-}
+};
 </script>
 
 <style lang="scss">
-  .main {
-    cursor: default;
+.main {
+  cursor: default;
 
-    &__contain {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      color: #6D8088;
-      font-size: 25px;
-      font-weight: bold;
-      font-family: sans-serif;
-      text-align: center;
-    }
-
-    &__subheading {
-      font-size: 12px;
-    }
+  &__contain {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #6d8088;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
   }
-  
+
+  &__subheading {
+    font-size: 12px;
+  }
+}
 </style>

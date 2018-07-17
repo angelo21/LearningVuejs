@@ -8,7 +8,9 @@
                 <router-view           
                      name="header-top">
                 </router-view>
-                <router-view></router-view>
+               
+                    <router-view></router-view>
+                
                 <router-view 
                     name="header-bottom">
                 </router-view>
@@ -28,4 +30,5 @@
 </script>
 
 <style>
+
 </style>
